@@ -16,6 +16,6 @@ You can run the downloader using either **run.sh** or **run.command** (MacOS).
 
 Both commands pull the latest **zoom-recordings-downloader** image from Docker hub and run it.
 
-All the recordings available in your Zoom will be downloaded and written to the directory zoom_recordings. This downloader does not monitor for new recordings available for download and exits after downloading all files. If the file had been downloaded it is not downloaded again.
+All the recordings available in your Zoom will be downloaded and written to the directory __zoom_recordings__ created in the directory where run script is located. This downloader does not monitor for new recordings available for download and exits after downloading all files. If the file had been downloaded it is not downloaded again.
 
 Download progress bar is shown.
