@@ -17,7 +17,6 @@ def download_zoom_file(zoomClient, url, fname, fsize):
 
     params = {
            'access_token': zoomClient.raw.bearer_token()
-
     }
     # NOTE the stream=True parameter below
     sz = 0
@@ -37,9 +36,9 @@ def download_zoom_file(zoomClient, url, fname, fsize):
     bar.finish()
 
 
-video_zoom_dir = '/usr/src/myapp/zoom-videos'
+video_zoom_dir = '/var/spool/zoom-downloader-out/zoom_recordings'
 
-print ('Starting video import')
+print ('Downloading zoom cloud recordings')
 
 # Set ZOOM_API_KEY and ZOOM_API_SECRET in the .env file
 client = ZoomClient.from_environment()
@@ -48,10 +47,7 @@ client = ZoomClient.from_environment()
 r = client.raw.get('/users')
 user_ids = []
 for user in r.json()['users']:
-  print (user)
   user_ids.append([ user['id'], user['email'] ] )
-
-print(user_ids)
 
 # 2: Getting cloud recordings
 for user in user_ids:
